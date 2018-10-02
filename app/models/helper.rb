@@ -11,7 +11,7 @@ module Helper
     end
 
     def make_method
-      define_singleton_method(:"#{self.class.name.downcase}_openings") do
+      define_method(:"hello_#{self.class.name.downcase}") do
         puts "Hello!"
       end
     end
