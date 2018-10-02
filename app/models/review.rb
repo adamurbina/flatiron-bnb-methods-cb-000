@@ -4,5 +4,16 @@ class Review < ActiveRecord::Base
 
   validates :rating, presence: true
   validates :description, presence: true
+  validates :reservation, presence: true
+
+  private
+
+  def valid_reservation
+    if reservation
+      if reservation
+        
+      end
+    end
+  end
 
 end
