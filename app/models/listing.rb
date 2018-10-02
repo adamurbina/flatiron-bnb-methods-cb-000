@@ -23,7 +23,7 @@ class Listing < ActiveRecord::Base
   end
 
   def is_available?(date)
-    date = Date.parse(date)
+    #date = Date.parse(date)
     self.reservations.each do |checkin, checkout|
       if date >= checkin && date <= checkout
         return false
