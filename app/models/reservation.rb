@@ -7,6 +7,7 @@ class Reservation < ActiveRecord::Base
   validates :checkout, presence: true
   validate :checkout_after_checkin
   validate :user_not_guest
+  validate :valid_dates
 
   def duration
     self.checkout.mjd - self.checkin.mjd
@@ -18,9 +19,9 @@ class Reservation < ActiveRecord::Base
 
   private
 
-  def available
+  def valid_dates
     if checkin && checkout
-      
+      errors.add(:checkin, "listing not available") unless (listing.is_available?(checkin) && listing.is_available?(checkout))
     end
   end
 
