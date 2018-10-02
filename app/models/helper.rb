@@ -16,7 +16,7 @@ module Helper
 
   module ClassMethods
 
-    define_method :"#{self.class.name.downcase}_try" do
+    define_method :hello do
       puts "hello"
     end
 
