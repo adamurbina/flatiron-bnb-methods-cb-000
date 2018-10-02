@@ -10,15 +10,13 @@ module Helper
       end
     end
 
-
+    define_method("hello_#{self.class.name.downcase}") do |start_date, end_date|
+      puts "Hello!"
+    end
 
   end
 
   module ClassMethods
-
-    define_method("hello_#{self.class.name.downcase}") do |start_date, end_date|
-      puts "Hello!"
-    end
 
     def highest_ratio_res_to_listings
       self.all.max_by do |element|
