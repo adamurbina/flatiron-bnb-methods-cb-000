@@ -19,7 +19,6 @@ module Helper
     define_method :"#{self.class.name.downcase}_try" do
       puts "hello"
     end
-    end
 
     def highest_ratio_res_to_listings
       self.all.max_by do |element|
