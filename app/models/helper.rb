@@ -16,7 +16,7 @@ module Helper
 
   module ClassMethods
 
-    define_method("hello_#{self.class.name.downcase}") do
+    define_method("hello_#{self.class.name.downcase}") do |start_date, end_date|
       puts "Hello!"
     end
 
