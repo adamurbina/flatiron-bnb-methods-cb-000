@@ -13,7 +13,7 @@ class Listing < ActiveRecord::Base
   validates :description, presence: true
 
   before_create :change_user_host_status
-  before_destroy :change_user_host_status
+  before_destroy :change_host_status_if_no_listings
 
   def average_review_rating
     review_ratings = self.reviews.collect do |r|
@@ -31,7 +31,7 @@ class Listing < ActiveRecord::Base
 
   def change_host_status_if_no_listings
       if condition
-        
+
       end
   end
 
