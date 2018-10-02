@@ -7,6 +7,8 @@ class City < ActiveRecord::Base
   include Helper::InstanceMethods
 
   def city_openings(start_date, end_date)
+    start_date = Date.parse(start_date)
+    end_date = Date.parse(end_date)
     city_reservations = self.reservations.all
     available_listings = []
     city_reservations.each do |res|
