@@ -7,8 +7,8 @@ class City < ActiveRecord::Base
   include Helper::InstanceMethods
 
   def city_openings(start_date, end_date)
-    listings = self.listings.keep_if do |listing|
-      listing.reservations.keep_if do |reservations|
+    available_listings = self.listings.keep_if do |listing|
+      active_reservations = listing.reservations.keep_if do |reservations|
         
       end
     end
