@@ -11,8 +11,8 @@ class Review < ActiveRecord::Base
 
   def valid_reservation
     if reservation
-      if reservation
-
+      if reservation.checkout > Date.today || reservation.status != "accepted"
+        errors.add(:reservation, "invalid reservation for review")
       end
     end
   end
