@@ -10,13 +10,15 @@ module Helper
       end
     end
 
-    def "#{Class.downcase}_try"
-      puts "hello!"
-    end
+    
 
   end
 
   module ClassMethods
+
+    def "#{Class.downcase}_try"
+      puts "hello!"
+    end
 
     def highest_ratio_res_to_listings
       self.all.max_by do |element|
