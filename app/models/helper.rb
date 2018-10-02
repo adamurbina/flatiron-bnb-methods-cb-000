@@ -10,7 +10,7 @@ module Helper
       end
     end
 
-    define_method("hello_#{self.class.name.downcase}") do |start_date, end_date|
+    define_method("hello_#{self.class.name.downcase}") do
       puts "Hello!"
     end
 
