@@ -18,7 +18,7 @@ class City < ActiveRecord::Base
         available_listings.delete(res.listing)
       end
     end
-    available_listings.uniq
+    available_listings
   end
 
 end
