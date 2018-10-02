@@ -16,7 +16,7 @@ module Helper
 
   module ClassMethods
 
-    define_method("hello_#{"hi"}") do
+    define_method("hello_#{self.class.name}") do
       puts "Hello!"
     end
 
