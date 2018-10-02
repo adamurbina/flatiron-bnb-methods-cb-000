@@ -1,3 +1,3 @@
 class Dummy
-  extend Helper::ClassMethods
+  include Helper::InstanceMethods
 end
