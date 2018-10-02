@@ -18,6 +18,12 @@ class Reservation < ActiveRecord::Base
 
   private
 
+  def available
+    if checkin && checkout
+      
+    end
+  end
+
   def checkout_after_checkin
     if checkin && checkout
       errors.add(:checkout, "checkout occurs before checkin") if checkin >= checkout
