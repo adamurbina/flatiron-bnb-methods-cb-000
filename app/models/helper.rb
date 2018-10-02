@@ -10,8 +10,10 @@ module Helper
       end
     end
 
-    define_method("hello_#{self.class.name.downcase}") do
-      puts "Hello!"
+    def make_method
+      define_method(:"hello_#{self.class.name.downcase}") do
+        puts "Hello!"
+      end
     end
 
   end
