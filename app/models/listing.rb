@@ -22,10 +22,6 @@ class Listing < ActiveRecord::Base
     review_ratings.sum / review_ratings.size.to_f
   end
 
-  def is_available?(start_date, end_date)
-    
-  end
-
   private
 
   def change_user_host_status
