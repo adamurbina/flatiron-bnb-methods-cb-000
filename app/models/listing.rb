@@ -4,5 +4,28 @@ class Listing < ActiveRecord::Base
   has_many :reservations
   has_many :reviews, :through => :reservations
   has_many :guests, :class_name => "User", :through => :reservations
-  
+
+  validates :address, presence: true
+  validates :listing_type, presence: true
+  validates :title, presence: true
+  validates :price, presence: true
+  validates :neighborhood, presence: true
+  validates :description, presence: true
+
+  # before_save :change_user_host_status
+
+  def average_review_rating
+    review_ratings = self.reviews.collect do |r|
+      r.rating
+    end
+    review_ratings.sum / review_ratings.size.to_f
+  end
+
+  private
+
+  # def change_user_host_status
+  #   self.host = true
+  # end
+
+
 end
