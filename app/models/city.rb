@@ -11,14 +11,11 @@ class City < ActiveRecord::Base
     start_date = Date.parse(start_date)
     end_date = Date.parse(end_date)
     city_reservations = self.reservations.all
-    available_listings = []
+    available_listings = self.listings.all
 
     city_reservations.each do |res|
-      if (res.checkout <= start_date || res.checkin >= end_date)
-        available_listings << res.listing
-        puts "checkin >> " + res.checkin.to_s
-        puts "checkout >> " + res.checkout.to_s
-        puts "res.listing >> " + res.listing_id.to_s
+      if !(res.checkout <= start_date || res.checkin >= end_date)
+        available_listings.delete(res.listing)
       end
     end
     available_listings.uniq
