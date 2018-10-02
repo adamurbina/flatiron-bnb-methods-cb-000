@@ -22,6 +22,15 @@ class Listing < ActiveRecord::Base
     review_ratings.sum / review_ratings.size.to_f
   end
 
+  def is_available?(date)
+    date = Date.parse(date)
+    self.reservations.each do |checkin, checkout|
+      if date >= checkin && date <= checkout
+        return false
+      end
+    end
+  end
+
   private
 
   def change_user_host_status
