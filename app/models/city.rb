@@ -7,11 +7,12 @@ class City < ActiveRecord::Base
   include Helper::InstanceMethods
 
   def city_openings(start_date, end_date)
-    available_listings = self.listings.keep_if do |listing|
-      active_reservations = listing.reservations.keep_if do |reservations|
-        
-      end
+    city_reservations = self.reservations.all
+    available_listings = []
+    city_reservations.each do |res|
+      available_listings << res.listing if (res.checkout < start_date || res.checkin > end_date)
     end
+    available_listings.uniq
   end
 
 end
