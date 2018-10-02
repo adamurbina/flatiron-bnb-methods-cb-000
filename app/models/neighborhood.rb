@@ -6,4 +6,6 @@ class Neighborhood < ActiveRecord::Base
   extend Helper::ClassMethods
   include Helper::InstanceMethods
 
+  after_initialize :make_method
+
 end
