@@ -12,7 +12,7 @@ class Listing < ActiveRecord::Base
   validates :neighborhood, presence: true
   validates :description, presence: true
 
-  # before_save :change_user_host_status
+  before_create :change_user_host_status
 
   def average_review_rating
     review_ratings = self.reviews.collect do |r|
@@ -23,9 +23,9 @@ class Listing < ActiveRecord::Base
 
   private
 
-  # def change_user_host_status
-  #   self.host = true
-  # end
+  def change_user_host_status
+    self.host.host = true
+  end
 
 
 end
