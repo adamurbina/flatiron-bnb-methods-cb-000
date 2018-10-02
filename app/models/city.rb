@@ -18,6 +18,7 @@ class City < ActiveRecord::Base
         available_listings << res.listing
         puts "checkin >> " + res.checkin.to_s
         puts "checkout >> " + res.checkout.to_s
+        puts "res.listing >> " + res.listing_id.to_s
       end
     end
     available_listings.uniq
