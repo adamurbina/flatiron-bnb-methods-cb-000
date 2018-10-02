@@ -11,8 +11,18 @@ module Helper
     end
 
     def make_method
-      define_singleton_method(:"hello_#{self.class.name.downcase}") do
-        puts "Hello!"
+      define_singleton_method(:"hello_#{self.class.name.downcase}") do |start_date, end_date|
+        
+        start_date = Date.parse(start_date)
+        end_date = Date.parse(end_date)
+        available_listings = self.listings.all
+      
+        self.reservations.all.each do |res|
+          if !(res.checkout <= start_date || res.checkin >= end_date)
+            available_listings.delete(res.listing)
+          end
+        end
+        available_listings
       end
     end
 
