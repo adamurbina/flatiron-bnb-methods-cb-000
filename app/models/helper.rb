@@ -16,9 +16,7 @@ module Helper
 
   module ClassMethods
 
-    define_method :hello do
-      puts "hello"
-    end
+    define_method(:hello) {puts "Hello!"}
 
     def highest_ratio_res_to_listings
       self.all.max_by do |element|
