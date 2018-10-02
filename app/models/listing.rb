@@ -25,6 +25,7 @@ class Listing < ActiveRecord::Base
 
   def change_user_host_status
     self.host.host = true
+    self.host.save
   end
 
 
