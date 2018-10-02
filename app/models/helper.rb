@@ -10,6 +10,10 @@ module Helper
       end
     end
 
+    def "#{Class.downcase}_try"
+      puts "hello!"
+    end
+
   end
 
   module ClassMethods
