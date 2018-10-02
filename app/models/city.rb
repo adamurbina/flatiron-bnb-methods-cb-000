@@ -8,7 +8,9 @@ class City < ActiveRecord::Base
 
   def city_openings(start_date, end_date)
     listings = self.listings.keep_if do |listing|
-      
+      listing.reservations.keep_if do |reservations|
+        
+      end
     end
   end
 
