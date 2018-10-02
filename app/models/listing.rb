@@ -29,6 +29,7 @@ class Listing < ActiveRecord::Base
         return false
       end
     end
+    true
   end
 
   private
