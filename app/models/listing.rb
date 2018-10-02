@@ -30,7 +30,7 @@ class Listing < ActiveRecord::Base
   end
 
   def change_host_status_if_no_listings
-      if condition
+      if self.host.listings
 
       end
   end
